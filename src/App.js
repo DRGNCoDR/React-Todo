@@ -9,7 +9,7 @@ const completion = 0
 
 const container = {
   background: 'gray',
-  height: '300px',
+  padding: '2px',
   border: '2px solid black',
   borderRadius: "10px"
 };
