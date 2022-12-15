@@ -11,15 +11,18 @@ const container = {
   background: 'gray',
   padding: '2px',
   border: '2px solid black',
-  borderRadius: "10px"
+  borderRadius: "10px",
+  maxWidth: '700px',
+  margin: 'auto'
 };
+const centerText = {
+    textAlign: 'center'
+}
+
 
 function App(){
   return (
     <div>
-      <h1>
-        React ToDo
-      </h1>
       <div
         style = {container}
       >

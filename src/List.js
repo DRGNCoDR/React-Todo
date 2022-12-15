@@ -25,6 +25,10 @@ const List = () => {
     const pad_L_5 ={
         paddingLeft: "5px"
     }
+    const center ={
+        display: "flex",
+        justifyContent: "center"
+    }
 
     const [todos, setTodos] = useState([])
 
@@ -44,6 +48,12 @@ const List = () => {
     function removeTodo(index){
         const newTodos = [...todos]
         newTodos.splice(index, 1)
+        setTodos(newTodos)
+    }
+
+    function editTodo(index){
+        const newTodos = [...todos]
+        newTodos[index].title = document.getElementById("Title").value
         setTodos(newTodos)
     }
 
@@ -73,6 +83,13 @@ const List = () => {
                 <button onClick={addTodo}>
                     + Add
                 </button>
+                <span style={center}>
+                    <button
+                        onClick={() =>completeTodo(true)}
+                    >
+                        Complete All
+                    </button>
+                </span>
             </div>
             <ul style={todoList}>
                 {
@@ -92,6 +109,13 @@ const List = () => {
                         </span>
                         <span style={pad_L_5}>
                             <button
+                                onClick={() => editTodo(index)}
+                            >
+                                E
+                            </button>
+                        </span>
+                        <span style={pad_L_5}>
+                            <button
                                 onClick={() => removeTodo(index)}
                             >
                                 X
@@ -101,13 +125,6 @@ const List = () => {
                     ))
                 }
             </ul>
-            <div>
-                <button
-                    onClick={() =>completeTodo(true)}
-                >
-                    Complete All
-                </button>
-            </div>
         </div>
     )
 }
