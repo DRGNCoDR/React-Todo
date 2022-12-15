@@ -19,6 +19,18 @@
 - [ ] Save/Load Todos
 
 
+** v0.1.0 **
+
+- [x] Adding todos (title only)
+- [x] Deleting todos
+- [x] Some CSS
+- [x] Mark all as complete
+- [x] Flexbox basic integration
+
+- [ ] Editing todos
+- [ ] Save/Load Todos
+
+
 ** Initial Commit **
 
 - [x] Develop Component Wireframe
