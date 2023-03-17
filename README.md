@@ -1,4 +1,14 @@
 # React ToDo With Rollup
+** v0.1.2 **
+- [x] Checking the box now strikes through text and sets background to green. Unchecking restores it to normal styling
+- [x] Made the delete button and edit button mor defined
+- [x] Fixed border style not appearing on the individual todos
+
+- [ ] Save / Load from Existing
+- [ ] % Complete
+- [ ] Added Created on date, need to get the date to update on add
+- [ ] Added Completed on date need to get the date to update on complete.
+
 ** v0.1.1 **
 - [x] Basic editing
 - [x] Better styling

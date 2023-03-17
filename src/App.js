@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Header from './Header';
-import List from './List';
+import Header from './comp/header';
+import Todo from './comp/todo';
 
 
 const date = new Date().toDateString()
@@ -21,13 +21,14 @@ const centerText = {
 
 
 function App(){
+  
   return (
     <div>
       <div
         style = {container}
       >
           {<Header/>}
-          {<List/>}
+          {<Todo />}
       </div>
     </div>
   );
