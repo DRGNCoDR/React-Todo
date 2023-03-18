@@ -1,5 +1,4 @@
 import React from 'react';
-import Todo from './todo'
 
 const header = {
     display: 'flex',
@@ -10,10 +9,19 @@ const header = {
     fontWeight: "bold"
   };
 
-function Header(){
+function Header({todoCount, completeCount}){
     const date = new Date().toDateString()
-    const completion = 0
-
+    const percent = 0
+    function getCompletePercent(){
+        var percent =
+            (todoCount > 0 && completeCount > 0) ?
+                (completeCount/todoCount) *100 :  0
+        
+            percent = (percent > 100) ? 100 : percent
+        return(
+            percent
+        )
+    }
     return (
     <div
         style= {header}
@@ -21,11 +29,12 @@ function Header(){
         <span>
             {date}
         </span>
+
         <span>
             To Do
         </span>
         <span>
-            {completion} % Complete
+            {getCompletePercent()} % Complete
         </span>
     </div>
     );

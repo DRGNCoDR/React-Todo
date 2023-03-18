@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import Header from './header';
 
 const Todo = () => {
-
     const listContainer = {
         background: "teal",
         padding: "5px"
@@ -14,7 +14,6 @@ const Todo = () => {
         flexWrap: "wrap",
         justifyContent: "flex-start"
     }
-    
     const pad2 = {
         padding: "2px"
     }
@@ -26,52 +25,101 @@ const Todo = () => {
         justifyContent: "center"
     }
 
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] =
+        useState([])
+    let [todoCount, setTodoCount] =
+        useState(0)
+    let [completeCount, setCompleteCount] =
+        useState(0)
 
     function addTodo()
     {
-        const currDate = new Date();
+        const currDate =
+            Intl.DateTimeFormat("en").format(new Date())
         const newTodos =
         [
             ...todos,
             {
                 title: document.getElementById("Title").value,
                 createdDate:currDate,
-                complete: false
+                complete: false,
+                completedDate: Date("12/31/9999")
             }
         ]
         setTodos(newTodos)
-        
+        setTodoCount(
+            todos.length + 1
+        )
     }
-    
+
     function removeTodo(index){
         const newTodos = [...todos]
+
+        if(newTodos[index].complete){
+            setCompleteCount(completeCount-=1)
+        }
+
         newTodos.splice(index, 1)
+
         setTodos(newTodos)
+        setTodoCount(
+            todos.length - 1
+        )
     }
 
     function editTodo(index){
         const newTodos = [...todos]
-        newTodos[index].title = document.getElementById("Title").value
+
+        newTodos[index].title =
+            document.getElementById("Title").value
+
         setTodos(newTodos)
     }
 
     function completeTodo(completeAll, index) {
         const newTodos = [...todos]
+
         if (completeAll) {
             newTodos.forEach(todo => {
                 todo.complete = true
+                todo.completedDate =
+                    Intl.DateTimeFormat("en").format(new Date())
+
+                if(completeCount < todoCount){
+                    setCompleteCount(completeCount += 1)
+                }
             });
         }
         else
         {
             newTodos[index].complete = !newTodos[index].complete
+
+            if(newTodos[index].complete){
+                newTodos[index].completedDate =
+                   Intl.DateTimeFormat("en").format(new Date())
+
+                if(completeCount < todoCount){
+                    setCompleteCount(completeCount += 1)
+                }
+            }else{
+                newTodos[index].completedDate = ''
+
+                if (completeCount>0)
+                {
+                    setCompleteCount(completeCount -= 1)
+                }
+            }
         }
         setTodos(newTodos)
     }
 
     return(
         <div style={listContainer}>
+            <Header
+                todoCount = {todoCount}
+                completeCount = {completeCount}
+            />
+
             <div>
                 <input
                     type="text"
@@ -79,25 +127,34 @@ const Todo = () => {
                     value= {todos.title}
                     id="Title"
                 />
-                <button onClick={addTodo}>
+                <button
+                    onClick={addTodo}
+                >
                     + Add
                 </button>
-                <span style={center}>
+                <span
+                    style={center}
+                >
                     <button
-                        onClick={() =>completeTodo(true)}
+                        onClick={
+                            () => completeTodo(true)
+                        }
                     >
                         Complete All
                     </button>
                 </span>
             </div>
-            <ul style={todoList}>
+            <ul
+                style={todoList}
+            >
                 {
                     todos.map((todo, index) => (
-
                     <li
                         style={
                             {
-                                backgroundColor: todo.complete ? "darkolivegreen" : "aquamarine",
+                                backgroundColor: todo.complete ?
+                                   "darkolivegreen" :
+                                   "aquamarine",
                                 border: "4px solid black",
                                 margin: "1px",
                                 padding: "2px"
@@ -105,13 +162,27 @@ const Todo = () => {
                         }
                         key={index.toString()}
                     >
-                        <p><em>Created on: 03/18/2023</em></p>
-                        <p style={{display : todo.complete ? "" : "none"}}><em>Completed on: 03/18/2023</em></p>
+                        <p>
+                            <em>
+                                Created on: {todo.createdDate}
+                            </em>
+                        </p>
+                        <p
+                            style={
+                                {display : todo.complete ? "" : "none"}
+                            }
+                        >
+                            <em>
+                                Completed on: {todo.completedDate}
+                            </em>
+                        </p>
                         <input
                             type="checkbox"
-                            value={todo.complete}
+                            value= {todo.complete}
                             checked = {todo.complete}
-                            onChange ={() => completeTodo(false, index)}
+                            onChange ={
+                                () => completeTodo(false, index)
+                            }
                         />
                         <span style={
                                 {
@@ -122,17 +193,33 @@ const Todo = () => {
                         >
                             {todo.title}
                         </span>
-                        <span style={pad_L_5}>
+                        <span
+                            style= {pad_L_5}
+                        >
                             <button
                                 onClick={() => editTodo(index)}
                             >
                                 Edit
                             </button>
                         </span>
-                        <div style={{pad_L_5, textAlign:"center"}}>
+                        <div
+                            style={
+                                {
+                                    pad_L_5,
+                                    textAlign:"center"
+                                }
+                            }
+                        >
                             <button
-                                onClick={() => removeTodo(index)}
-                                style={{width:"35%" }}                            >
+                                onClick={
+                                    () => removeTodo(index)
+                                }
+                                style={
+                                    {
+                                        width:"35%"
+                                    }
+                                }
+                            >
                                 X
                             </button>
                         </div>

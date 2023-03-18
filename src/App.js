@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Header from './comp/header';
 import Todo from './comp/todo';
 
 
@@ -15,19 +14,17 @@ const container = {
   maxWidth: '700px',
   margin: 'auto'
 };
+
 const centerText = {
     textAlign: 'center'
 }
 
-
 function App(){
-  
   return (
     <div>
       <div
         style = {container}
       >
-          {<Header/>}
           {<Todo />}
       </div>
     </div>

@@ -1,4 +1,12 @@
 # React ToDo With Rollup
+** v0.1.3 **
+- [x] % Complete
+- [x] Added Created on date, need to get the date to update on add
+- [x] Added Completed on date need to get the date to update on complete.
+
+- [ ] Save / Load from Existing
+- [ ] Fix Layout / Styling
+
 ** v0.1.2 **
 - [x] Checking the box now strikes through text and sets background to green. Unchecking restores it to normal styling
 - [x] Made the delete button and edit button mor defined
