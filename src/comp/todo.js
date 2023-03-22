@@ -3,6 +3,28 @@ import { useState } from 'react';
 import Header from './header';
 
 const Todo = () => {
+    // const styles = {
+    //     listContainer : {
+    //         background: "teal",
+    //         padding: "5px"
+    //     },
+    //     todoList : {
+    //         listStyleType: "none",
+    //         padding: "2px",
+    //         display: "flex",
+    //         flexWrap: "wrap",
+    //         justifyContent: "flex-start"
+    //     },
+    //     pad2 : {
+    //         padding: "2px"
+    //     },
+    //     pad_L_5 :{
+    //         paddingLeft: "5px"
+    //     },
+    //     center :{            
+    //         justifyContent: "center"
+    //     }
+    // }
     const listContainer = {
         background: "teal",
         padding: "5px"
@@ -20,8 +42,7 @@ const Todo = () => {
     const pad_L_5 ={
         paddingLeft: "5px"
     }
-    const center ={
-        display: "flex",
+    const center ={        
         justifyContent: "center"
     }
 
@@ -31,7 +52,7 @@ const Todo = () => {
         useState(0)
     let [completeCount, setCompleteCount] =
         useState(0)
-
+    
     function addTodo()
     {
         const currDate =
@@ -65,6 +86,23 @@ const Todo = () => {
         setTodoCount(
             todos.length - 1
         )
+    }
+    function saveTodo(){
+        const newTodos = [...todos]
+        localStorage.setItem(
+            "todo-list",
+            JSON.stringify({newTodos})
+        )
+    }
+    function loadTodo(){
+        const newTodos = []
+        const currTodos = JSON.parse(localStorage.getItem("todo-list"))
+        
+        const arr = Array.from(currTodos.newTodos)
+        arr.forEach(item =>{
+            newTodos.push(item)
+        })
+        setTodos(newTodos)
     }
 
     function editTodo(index){
@@ -110,6 +148,11 @@ const Todo = () => {
                 }
             }
         }
+        
+        localStorage.setItem(
+            "todo-list",
+            JSON.stringify({newTodos})
+        )
         setTodos(newTodos)
     }
 
@@ -227,6 +270,16 @@ const Todo = () => {
                     ))
                 }
             </ul>
+            <button
+                    onClick={loadTodo}
+                >
+                    Load
+                </button>
+            <button
+                    onClick={saveTodo}
+                >
+                    Save
+                </button>
         </div>
     )
 }

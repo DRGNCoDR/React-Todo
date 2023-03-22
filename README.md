@@ -1,4 +1,8 @@
 # React ToDo With Rollup
+** v0.1.4 **
+- [x] Save / Load from Existing
+- [ ] Fix Layout / Styling
+
 ** v0.1.3 **
 - [x] % Complete
 - [x] Added Created on date, need to get the date to update on add
