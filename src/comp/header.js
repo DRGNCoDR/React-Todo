@@ -1,10 +1,11 @@
 import React from 'react';
 
 const header = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    background: '#00ffc3',
-    padding: '5px',
+    display: "flex",
+    justifyContent: "space-between",
+    background: "#00ffc3",
+    padding: "5px",
+    margin: "5px",
     borderRadius: "5px",
     fontWeight: "bold"
 };
