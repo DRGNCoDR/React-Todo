@@ -1,4 +1,11 @@
 # React ToDo With Rollup
+** v0.1.5 **
+- [] Update appearance
+- [x] Componentize app
+- [] Add delete all button
+- [] Make complete all button a toggle
+- [x] Move complete all to globalButtons section.
+
 ** v0.1.4 **
 - [x] Save / Load from Existing
 - [ ] Fix Layout / Styling

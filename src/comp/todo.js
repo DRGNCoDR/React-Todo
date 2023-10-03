@@ -134,7 +134,6 @@ const Todo = () => {
             <Add
                 todos = {todos}
                 addTodo = {addTodo}
-                completeTodo = {completeTodo}
             />            
             <List
                 todos = {todos}
@@ -146,6 +145,7 @@ const Todo = () => {
             <GlobalButtons
                 loadTodo = {loadTodo}
                 saveTodo = {saveTodo}
+                completeTodo = {completeTodo}
             />
             
         </div>

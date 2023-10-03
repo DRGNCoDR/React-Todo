@@ -1,6 +1,6 @@
 import React from "react";
 
-const Add = ({todos, addTodo, completeTodo}) => {
+const Add = ({todos, addTodo}) => {
     const addContainer = {        
         padding: "5px",
         margin: "5px"
@@ -25,15 +25,6 @@ const Add = ({todos, addTodo, completeTodo}) => {
                 onClick = {addTodo}
             >
                 + Add
-            </button>
-
-            <button
-                style = {marginLeft}
-                onClick = {
-                    () => completeTodo(true)
-                }
-            >
-                Complete All
             </button>
         </div>
     )
