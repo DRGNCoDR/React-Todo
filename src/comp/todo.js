@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from './header';
 import Add from './add';
 import List from './list';
+import GlobalButtons from './globalButtons';
 
 const Todo = () => {    
     const listContainer = {
@@ -142,17 +143,11 @@ const Todo = () => {
                 editTodo = {editTodo}
                 removeTodo = {removeTodo}
             />            
-           
-            <button
-                    onClick={loadTodo}
-                >
-                    Load
-                </button>
-            <button
-                    onClick={saveTodo}
-                >
-                    Save
-                </button>
+            <GlobalButtons
+                loadTodo = {loadTodo}
+                saveTodo = {saveTodo}
+            />
+            
         </div>
     )
 }
