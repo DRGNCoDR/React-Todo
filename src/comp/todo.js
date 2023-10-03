@@ -2,29 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Header from './header';
 
-const Todo = () => {
-    // const styles = {
-    //     listContainer : {
-    //         background: "teal",
-    //         padding: "5px"
-    //     },
-    //     todoList : {
-    //         listStyleType: "none",
-    //         padding: "2px",
-    //         display: "flex",
-    //         flexWrap: "wrap",
-    //         justifyContent: "flex-start"
-    //     },
-    //     pad2 : {
-    //         padding: "2px"
-    //     },
-    //     pad_L_5 :{
-    //         paddingLeft: "5px"
-    //     },
-    //     center :{            
-    //         justifyContent: "center"
-    //     }
-    // }
+const Todo = () => {    
     const listContainer = {
         background: "teal",
         padding: "5px"
@@ -103,6 +81,8 @@ const Todo = () => {
             newTodos.push(item)
         })
         setTodos(newTodos)
+        setTodoCount(newTodos.length)
+        setCompleteCount(newTodos.filter(t=>t.complete == true).length)
     }
 
     function editTodo(index){
