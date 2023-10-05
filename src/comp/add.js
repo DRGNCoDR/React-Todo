@@ -9,7 +9,7 @@ const Add = ({todos, addTodo}) => {
         marginLeft: "5px"
     }
 
-    return(
+    return (
         <div
             style = {addContainer}
         >
@@ -29,5 +29,4 @@ const Add = ({todos, addTodo}) => {
         </div>
     )
 }
-
 export default Add

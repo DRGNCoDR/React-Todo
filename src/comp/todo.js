@@ -22,6 +22,7 @@ const Todo = () => {
     {
         const currDate =
             Intl.DateTimeFormat("en").format(new Date())
+        
         const newTodos =
         [
             ...todos,
@@ -32,39 +33,54 @@ const Todo = () => {
                 completedDate: Date("12/31/9999")
             }
         ]
+
         setTodos(newTodos)
-        setTodoCount(
+        setTodoCount
+        (
             todos.length + 1
         )
     }
 
-    function removeTodo(index){
-        const newTodos = [...todos]
-
-        if(newTodos[index].complete){
-            setCompleteCount(completeCount-=1)
+    function removeTodo(index,removeAll = false)
+    {
+        if(removeAll){
+            setTodos([])
         }
 
-        newTodos.splice(index, 1)
+        if(!removeAll){
+            const newTodos = [...todos]
 
-        setTodos(newTodos)
-        setTodoCount(
-            todos.length - 1
-        )
+            if(newTodos[index].complete)
+            {
+                setCompleteCount(completeCount-=1)
+            }
+
+            newTodos.splice(index, 1)
+
+            setTodos(newTodos)
+            setTodoCount(todos.length - 1)
+        }
+        
     }
-    function saveTodo(){
+
+    function saveTodo()
+    {
         const newTodos = [...todos]
         
-        localStorage.setItem(
+        localStorage.setItem
+        (
             "todo-list",
             JSON.stringify({newTodos})
         )
     }
-    function loadTodo(){
+
+    function loadTodo()
+    {
         const newTodos = []
         const currTodos = JSON.parse(localStorage.getItem("todo-list"))
         
         const arr = Array.from(currTodos.newTodos)
+        
         arr.forEach(item =>{
             newTodos.push(item)
         })
@@ -74,7 +90,8 @@ const Todo = () => {
         setCompleteCount(newTodos.filter(t=>t.complete == true).length)
     }
 
-    function editTodo(index){
+    function editTodo(index)
+    {
         const newTodos = [...todos]
 
         newTodos[index].title =
@@ -83,32 +100,50 @@ const Todo = () => {
         setTodos(newTodos)
     }
 
-    function completeTodo(completeAll, index) {
+    function completeTodo(completeAll, index) 
+    {
         const newTodos = [...todos]
 
         if (completeAll) {
-            newTodos.forEach(todo => {
-                todo.complete = true
-                todo.completedDate =
-                    Intl.DateTimeFormat("en").format(new Date())
+            if(completeCount == todoCount)
+            {
+                newTodos.forEach(todo => {
+                    todo.complete = false
+                    setCompleteCount(0)
+                })
+            }
+            
+            if(completeCount != todoCount)
+            {
+                newTodos.forEach(todo => {
+                    todo.complete = true
+                    
+                    todo.completedDate =
+                        Intl.DateTimeFormat("en").format(new Date())
 
-                if(completeCount < todoCount){
-                    setCompleteCount(completeCount += 1)
-                }
-            });
+                    if(completeCount < todoCount){
+                        setCompleteCount(completeCount += 1)
+                    }
+                });
+            }
+           
         }
         else
         {
             newTodos[index].complete = !newTodos[index].complete
 
-            if(newTodos[index].complete){
+            if(newTodos[index].complete)
+            {
                 newTodos[index].completedDate =
                    Intl.DateTimeFormat("en").format(new Date())
 
                 if(completeCount < todoCount){
                     setCompleteCount(completeCount += 1)
                 }
-            }else{
+            }
+
+            if(!newTodos[index].complete)
+            {
                 newTodos[index].completedDate = ''
 
                 if (completeCount>0)
@@ -118,10 +153,12 @@ const Todo = () => {
             }
         }
         
-        localStorage.setItem(
+        localStorage.setItem
+        (
             "todo-list",
             JSON.stringify({newTodos})
         )
+        
         setTodos(newTodos)
     }
 
@@ -146,6 +183,7 @@ const Todo = () => {
                 loadTodo = {loadTodo}
                 saveTodo = {saveTodo}
                 completeTodo = {completeTodo}
+                removeTodo = {removeTodo}
             />
             
         </div>

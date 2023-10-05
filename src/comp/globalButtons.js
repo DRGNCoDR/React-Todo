@@ -1,12 +1,12 @@
 import React from "react";
 
-const GlobalButtons = ({loadTodo, saveTodo, completeTodo}) => {
-    const globalButtonsContainer = {
+const GlobalButtons = ({loadTodo, saveTodo, completeTodo, removeTodo}) => {
+    const globalButtonsContainer = 
+    {
         margin: "5px",
-        paddingLeft: "5px"
-    }
-    const marginLeft = {
-        marginLeft: "5px"
+        paddingLeft: "5px",
+        display: "flex",
+        justifyContent: "space-around"
     }
 
     return(
@@ -14,25 +14,27 @@ const GlobalButtons = ({loadTodo, saveTodo, completeTodo}) => {
             style = {globalButtonsContainer}
         >
             <button
-                onClick = {loadTodo}
-                style = {marginLeft}
+                onClick = {loadTodo}                
             >
                 Load
             </button>
             
             <button
-                onClick = {saveTodo}
-                style = {marginLeft}
+                onClick = {saveTodo}                
             >
                 Save
             </button>
-            <button
-                style = {marginLeft}
-                onClick = {
-                    () => completeTodo(true)
-                }
+            
+            <button                
+                onClick = {() => completeTodo(true)}
             >
                 Complete All
+            </button>
+            
+            <button
+                onClick = {() => removeTodo(0, true)}
+            >
+                Delete All
             </button>
         </div>
     )

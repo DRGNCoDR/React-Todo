@@ -10,11 +10,13 @@ const header = {
     fontWeight: "bold"
 };
 
-function Header({todoCount, completeCount}){
+function Header({todoCount, completeCount})
+{
     const currDate = new Date().toDateString()
     let percentComplete = 0
     
-    function getCompletePercent(){
+    function getCompletePercent()
+    {
         var getPercentageValue =
             (todoCount > 0 && completeCount > 0) ?
                 (completeCount/todoCount) * 100 : 
@@ -22,14 +24,12 @@ function Header({todoCount, completeCount}){
         
         percentComplete = (getPercentageValue > 100) ? 100 : getPercentageValue
         
-        return(
-            percentComplete
-        )
+        return(percentComplete.toFixed(2))
     }
 
     return (
     <div
-        style= {header}
+        style = {header}
     >
         <span>
             {currDate}

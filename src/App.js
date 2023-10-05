@@ -7,7 +7,7 @@ const style = {
     padding: '2px',
     border: '2px solid black',
     borderRadius: "10px",
-    maxWidth: '600px',
+    maxWidth: '1000px',
     margin: 'auto'
   },
 }
