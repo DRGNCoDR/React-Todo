@@ -3,7 +3,7 @@ import React from 'react';
 const header = {
     display: "flex",
     justifyContent: "space-between",
-    background: "#00ffc3",
+    background: "rgb(116, 169, 181)",
     padding: "5px",
     margin: "5px",
     borderRadius: "5px",

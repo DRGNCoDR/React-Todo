@@ -1,5 +1,8 @@
 import React from "react";
-
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ChecklistIcon from '@mui/icons-material/Checklist';
+import SaveIcon from '@mui/icons-material/Save';
 const GlobalButtons = ({loadTodo, saveTodo, completeTodo, removeTodo}) => {
     const globalButtonsContainer = 
     {
@@ -13,29 +16,38 @@ const GlobalButtons = ({loadTodo, saveTodo, completeTodo, removeTodo}) => {
         <div
             style = {globalButtonsContainer}
         >
-            <button
+            <Button 
+                variant="outlined"
                 onClick = {loadTodo}                
             >
                 Load
-            </button>
+            </Button>
             
-            <button
+            <Button 
+                variant="outlined"
+                color="success"
+                startIcon={<SaveIcon />}     
                 onClick = {saveTodo}                
             >
                 Save
-            </button>
+            </Button>
             
-            <button                
+            <Button 
+                variant="outlined"
+                startIcon={<ChecklistIcon />}         
                 onClick = {() => completeTodo(true)}
             >
                 Complete All
-            </button>
+            </Button>
             
-            <button
-                onClick = {() => removeTodo(0, true)}
+            <Button 
+                variant="outlined"
+                color="error"
+                startIcon={<DeleteIcon />}
+                onClick = {() => removeTodo(0, true)}                
             >
                 Delete All
-            </button>
+            </Button>
         </div>
     )
 }

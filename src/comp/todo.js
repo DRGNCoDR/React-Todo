@@ -7,7 +7,7 @@ import GlobalButtons from './globalButtons';
 
 const Todo = () => {    
     const listContainer = {
-        background: "teal",
+        background: "#c5eeee",
         padding: "5px"
     }
         

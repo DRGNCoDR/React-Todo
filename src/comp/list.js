@@ -1,5 +1,9 @@
 import React from "react";
+import Checkbox from '@mui/material/Checkbox';
 
+import Button from '@mui/material/Button';
+import ClearIcon from '@mui/icons-material/Clear';
+import EditIcon from '@mui/icons-material/Edit';
 function List  (
     {
         todos,
@@ -19,9 +23,7 @@ function List  (
     const pad2 = {
         padding: "5px"
     }
-    const pad_L_5 ={
-        paddingLeft: "2px"
-    }
+   
     const todoHeader = {
         display: "flex",
         justifyContent: "space-around"
@@ -37,12 +39,12 @@ function List  (
                     style = {
                         {
                             backgroundColor: todo.complete ?
-                                "darkolivegreen" :
-                                "aquamarine",
+                                "rgb(176, 206, 178)" :
+                                "#e8f0ed",
                             border: "4px solid black",
                             margin: "1px",
                             padding: "2px",
-                            minWidth: "200px"
+                            minWidth: "250px"
                         }
                     }
                     key = {index.toString()}
@@ -50,10 +52,10 @@ function List  (
                     
                         <div style={todoHeader}>
                             <span>
-                                <input
-                                    type = "checkbox"
+                                <Checkbox
                                     value = {todo.complete}
                                     checked = {todo.complete}
+                                    size="small"
                                     onChange = {
                                         () => completeTodo(false, index)
                                     }
@@ -71,20 +73,22 @@ function List  (
                             </span>
                         </span>
                         <span>
-                            <button
-                                onClick={() => editTodo(index)}
-                            >
-                                Edit
-                            </button>
+                        <Button 
+                            variant="outlined"
+                            color="success"
+                            startIcon={<EditIcon />}
+                            onClick={() => editTodo(index)}
+                       />
+                        
                         </span>
                         <span>
-                                <button
-                                    onClick = {
-                                        () => removeTodo(index)
-                                    }                                   
-                                >
-                                    X
-                                </button>
+                        <Button 
+                            variant="outlined"
+                            color="error"
+                            startIcon={<ClearIcon />}  
+                            onClick = {() => removeTodo(index)}                                   
+                        />
+                                 
                         </span>
                     </div>
                     <p>
