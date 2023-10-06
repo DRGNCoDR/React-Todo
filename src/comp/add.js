@@ -1,12 +1,15 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+
 const Add = ({todos, addTodo}) => {
-    const addContainer = {        
+    const addContainer = 
+    {        
         padding: "5px",
         margin: "5px"
     }
-    const marginLeft ={        
+    const marginLeft =
+    {        
         marginLeft: "5px"
     }
 

@@ -22,7 +22,10 @@ function Header({todoCount, completeCount})
                 (completeCount/todoCount) * 100 : 
                 0        
         
-        percentComplete = (getPercentageValue > 100) ? 100 : getPercentageValue
+        percentComplete = 
+            (getPercentageValue > 100) ?
+                100 :
+                getPercentageValue
         
         return(percentComplete.toFixed(2))
     }
@@ -34,9 +37,11 @@ function Header({todoCount, completeCount})
         <span>
             {currDate}
         </span>
+
         <span>
             To Do
         </span>
+        
         <span>
             {getCompletePercent()} % Complete
         </span>

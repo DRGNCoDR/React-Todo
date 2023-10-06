@@ -1,18 +1,20 @@
 import React from "react";
 import Checkbox from '@mui/material/Checkbox';
-
 import Button from '@mui/material/Button';
 import ClearIcon from '@mui/icons-material/Clear';
 import EditIcon from '@mui/icons-material/Edit';
+
 function List  (
     {
         todos,
         completeTodo,
         editTodo,
         removeTodo
-    }) 
+    }
+) 
 {
-    const todoList = {
+    const todoList = 
+    {
         listStyleType: "none",
         padding: "2px",
         margin: "5px",
@@ -20,37 +22,39 @@ function List  (
         flexWrap: "wrap",
         justifyContent: "flex-start"
     }
-    const pad2 = {
+    const pad2 = 
+    {
         padding: "5px"
     }
    
-    const todoHeader = {
+    const todoHeader = 
+    {
         display: "flex",
         justifyContent: "space-around"
     }
 
-    return    (
+    return(
         <ul
             style = {todoList}
         >
             {
                 todos.map((todo, index) => (
-                <li
-                    style = {
+                    <li
+                        style = 
                         {
-                            backgroundColor: todo.complete ?
-                                "rgb(176, 206, 178)" :
-                                "#e8f0ed",
-                            border: "4px solid black",
-                            margin: "1px",
-                            padding: "2px",
-                            minWidth: "250px"
+                            {
+                                backgroundColor: todo.complete ?
+                                    "rgb(176, 206, 178)" :
+                                    "#e8f0ed",
+                                border: "4px solid black",
+                                margin: "1px",
+                                padding: "2px",
+                                minWidth: "250px"
+                            }
                         }
-                    }
-                    key = {index.toString()}
-                >
-                    
-                        <div style={todoHeader}>
+                        key = {index.toString()}
+                    >                    
+                        <div style = {todoHeader}>
                             <span>
                                 <Checkbox
                                     value = {todo.complete}
@@ -61,7 +65,7 @@ function List  (
                                     }
                                 />
                             </span>
-                            <span>
+                            
                             <span style = {
                                 {
                                     pad2,
@@ -71,44 +75,43 @@ function List  (
                             >
                                 {todo.title}
                             </span>
-                        </span>
-                        <span>
-                        <Button 
-                            variant="outlined"
-                            color="success"
-                            startIcon={<EditIcon />}
-                            onClick={() => editTodo(index)}
-                       />
-                        
-                        </span>
-                        <span>
-                        <Button 
-                            variant="outlined"
-                            color="error"
-                            startIcon={<ClearIcon />}  
-                            onClick = {() => removeTodo(index)}                                   
-                        />
-                                 
-                        </span>
-                    </div>
-                    <p>
-                        <em>
-                            Created on: {todo.createdDate}
-                        </em>
-                    </p>
+                            
+                            <span>
+                                <Button 
+                                    variant="outlined"
+                                    color="success"
+                                    startIcon={<EditIcon />}
+                                    onClick={() => editTodo(index)}
+                                />                        
+                            </span>
+                            
+                            <span>
+                                <Button 
+                                    variant="outlined"
+                                    color="error"
+                                    startIcon={<ClearIcon />}  
+                                    onClick = {() => removeTodo(index)}                                   
+                                />                                 
+                            </span>
+                        </div>
+                        <p>
+                            <em>
+                                Created on: {todo.createdDate}
+                            </em>
+                        </p>
 
-                    <p
-                        style = {
-                            {
-                                display : todo.complete ? "" : "none"
+                        <p
+                            style = {
+                                {
+                                    display : todo.complete ? "" : "none"
+                                }
                             }
-                        }
-                    >                        
-                        <em>
-                            Completed on: {todo.completedDate}
-                        </em>
-                    </p>                    
-                </li>
+                        >                        
+                            <em>
+                                Completed on: {todo.completedDate}
+                            </em>
+                        </p>                    
+                    </li>
                 ))
             }
         </ul>

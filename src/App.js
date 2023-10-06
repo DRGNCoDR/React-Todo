@@ -1,14 +1,14 @@
-import React from 'react';
-import Todo from './comp/todo';
+import React from "react";
+import Todo from "./comp/todo";
 
 const style = {
   container: {
-    background: 'gray',
-    padding: '2px',
-    border: '2px solid black',
+    background: "gray",
+    padding: "2px",
+    border: "2px solid black",
     borderRadius: "10px",
-    maxWidth: '1000px',
-    margin: 'auto'
+    maxWidth: "1000px",
+    margin: "auto"
   },
 }
 

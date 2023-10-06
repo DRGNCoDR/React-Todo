@@ -1,4 +1,8 @@
 # React ToDo With Rollup
+** v0.1.7 **
+- [x] Update Appearance
+- [] Adjust the title location on the individual todo
+
 ** v0.1.6 **
 - [] Update appearance
 - [x] Add delete all button

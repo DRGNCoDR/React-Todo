@@ -41,13 +41,18 @@ const Todo = () => {
         )
     }
 
-    function removeTodo(index,removeAll = false)
+    function removeTodo(
+        index,
+        removeAll = false
+    )
     {
-        if(removeAll){
+        if (removeAll) 
+        {
             setTodos([])
         }
 
-        if(!removeAll){
+        if (!removeAll)
+        {
             const newTodos = [...todos]
 
             if(newTodos[index].complete)
@@ -59,8 +64,7 @@ const Todo = () => {
 
             setTodos(newTodos)
             setTodoCount(todos.length - 1)
-        }
-        
+        }        
     }
 
     function saveTodo()
@@ -90,7 +94,9 @@ const Todo = () => {
         setCompleteCount(newTodos.filter(t=>t.complete == true).length)
     }
 
-    function editTodo(index)
+    function editTodo(
+        index
+    )
     {
         const newTodos = [...todos]
 
@@ -100,11 +106,15 @@ const Todo = () => {
         setTodos(newTodos)
     }
 
-    function completeTodo(completeAll, index) 
+    function completeTodo(
+        completeAll,
+        index
+    ) 
     {
         const newTodos = [...todos]
 
-        if (completeAll) {
+        if (completeAll) 
+        {
             if(completeCount == todoCount)
             {
                 newTodos.forEach(todo => {
@@ -113,7 +123,7 @@ const Todo = () => {
                 })
             }
             
-            if(completeCount != todoCount)
+            if (completeCount != todoCount)
             {
                 newTodos.forEach(todo => {
                     todo.complete = true
@@ -121,7 +131,8 @@ const Todo = () => {
                     todo.completedDate =
                         Intl.DateTimeFormat("en").format(new Date())
 
-                    if(completeCount < todoCount){
+                    if (completeCount < todoCount)
+                    {
                         setCompleteCount(completeCount += 1)
                     }
                 });
@@ -137,12 +148,13 @@ const Todo = () => {
                 newTodos[index].completedDate =
                    Intl.DateTimeFormat("en").format(new Date())
 
-                if(completeCount < todoCount){
+                if (completeCount < todoCount)
+                {
                     setCompleteCount(completeCount += 1)
                 }
             }
 
-            if(!newTodos[index].complete)
+            if (!newTodos[index].complete)
             {
                 newTodos[index].completedDate = ''
 
@@ -184,8 +196,7 @@ const Todo = () => {
                 saveTodo = {saveTodo}
                 completeTodo = {completeTodo}
                 removeTodo = {removeTodo}
-            />
-            
+            />            
         </div>
     )
 }
