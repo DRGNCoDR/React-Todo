@@ -10,7 +10,12 @@ const header = {
     fontWeight: "bold"
 };
 
-function Header({todoCount, completeCount})
+function Header(
+    {
+        todoCount,
+        completeCount
+    }
+)
 {
     const currDate = new Date().toDateString()
     let percentComplete = 0

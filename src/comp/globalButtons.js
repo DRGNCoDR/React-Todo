@@ -4,7 +4,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import SaveIcon from '@mui/icons-material/Save';
 
-const GlobalButtons = ({loadTodo, saveTodo, completeTodo, removeTodo}) => {
+const GlobalButtons = (
+    {
+        loadTodo,
+        saveTodo,
+        completeTodo,
+        removeTodo
+    }
+) => {
     const globalButtonsContainer = 
     {
         margin: "5px",
