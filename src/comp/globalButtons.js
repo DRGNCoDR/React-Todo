@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import SaveIcon from '@mui/icons-material/Save';
+import LoadIcon from '@mui/icons-material/Download';
 
 const GlobalButtons = (
     {
@@ -26,7 +27,8 @@ const GlobalButtons = (
         >
             <Button 
                 variant="outlined"
-                onClick = {loadTodo}                
+                startIcon={<LoadIcon />} 
+                onClick = {loadTodo}
             >
                 Load
             </Button>
@@ -37,7 +39,7 @@ const GlobalButtons = (
                 startIcon={<SaveIcon />}     
                 onClick = {saveTodo}                
             >
-                Save
+                Save All
             </Button>
             
             <Button 

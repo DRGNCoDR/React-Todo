@@ -98,12 +98,15 @@ const Todo = () => {
         index
     )
     {
+        
         const newTodos = [...todos]
 
         newTodos[index].title =
-            document.getElementById("Title").value
+            document.getElementById("editTodoTitle").value
 
         setTodos(newTodos)
+        document.getElementById("editTodoTitle").value = ""
+        document.getElementById("editTodoTitle").attr('placeholder',"Enter a new Todo value")
     }
 
     function completeTodo(

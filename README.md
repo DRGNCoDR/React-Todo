@@ -1,4 +1,9 @@
 # React ToDo With Rollup
+** v0.1.8 **
+- [x] Update Appearance
+- [x] Adjust the title location on the individual todo
+- [ ] format todo (alignment)
+
 ** v0.1.7 **
 - [x] Update Appearance
 - [] Adjust the title location on the individual todo

@@ -2,7 +2,9 @@ import React from "react";
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import ClearIcon from '@mui/icons-material/Clear';
-import EditIcon from '@mui/icons-material/Edit';
+//import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
+//import { InputRounded } from "@mui/icons-material";
 
 function List  (
     {
@@ -73,14 +75,15 @@ function List  (
                                 }
                             }
                             >
-                                {todo.title}
+                                <input placeholder="Enter new Todo Title" id="editTodoTitle"/>       
+                                <p>{todo.title}</p>
                             </span>
                             
                             <span>
                                 <Button 
                                     variant="outlined"
                                     color="success"
-                                    startIcon={<EditIcon />}
+                                    startIcon={<SaveIcon />}
                                     onClick={() => editTodo(index)}
                                 />                        
                             </span>
